@@ -13,6 +13,11 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true }, () => {
     console.log("Connected to MongoDB.");
 });
 
+//middleware
+app.use(express.json());
+app.use(helmet());
+app.use(morgan("common"));
+
 app.listen(3000, () => {
     console.log("Server is listening on port 3000.");
 });
