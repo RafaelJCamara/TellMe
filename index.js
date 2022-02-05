@@ -6,6 +6,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
+const conversationRoute = require("./routes/conversation");
 
 //enable .env
 dotenv.config();
@@ -32,6 +33,7 @@ app.use(morgan("common"));
 
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
+app.use("/api/conversation", conversationRoute);
 
 app.listen(3000, () => {
     console.log("Server is listening on port 3000.");
