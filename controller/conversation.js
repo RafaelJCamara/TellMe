@@ -2,9 +2,10 @@ const Conversation = require("../models/Conversation");
 
 module.exports.createConversation = async (req, res) =>{
     try{
-        const {senderId , receiverId} = req.body;
+        const {senderId , receiverId, message} = req.body;
         const newConversation = new Conversation({
-            members: [senderId, receiverId]
+            members: [senderId, receiverId],
+            message
         });
         const savedConversation = await newConversation.save();
         return res.status(200).json(savedConversation);
