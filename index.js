@@ -7,6 +7,10 @@ const morgan = require("morgan");
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const conversationRoute = require("./routes/conversation");
+//io is a function that we call to get an individual socket
+import {io} from 'socket.io-client';
+
+const socket = io("http://localhost:3001");
 
 //enable .env
 dotenv.config();
