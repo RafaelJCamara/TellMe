@@ -37,7 +37,8 @@ module.exports.login = async (req, res) =>{
             message: "Error! Passwords are not matching."
         });
 
-        return res.status(200).json(foundUser);
+        //return res.status(200).json(foundUser);
+        res.redirect(`/api/conversation/${foundUser._id}`);
 
     } catch (err) {
         return res.status(500).json(err);

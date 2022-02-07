@@ -1,3 +1,4 @@
+const io = require("socket.io-client");
 const Conversation = require("../models/Conversation");
 
 module.exports.createConversation = async (req, res) =>{
@@ -21,6 +22,11 @@ module.exports.getUserConversations = async (req, res) =>{
             members: {
                 $in: [userId]
             }
+        });
+        //render conversation information
+        const socket = io("http://localhost:3001");
+        socket.on("connect", ()=>{
+            console.log("You connected.");
         });
         return res.status(200).json(conversations);
     }catch(err){

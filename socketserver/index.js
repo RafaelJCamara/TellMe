@@ -7,5 +7,6 @@ const io = require("socket.io")(3001, {
 
 //whenever a client connects to our server
 io.on("connection", socket =>{
+    console.log("WS connection.");
     console.log(socket.id);
 });
